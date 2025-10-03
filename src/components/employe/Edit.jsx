@@ -26,7 +26,7 @@ export default function Edit() {
     useEffect(() => {
     const fatchEmploye = async () => {
       try {
-        const response = await axios.get(`http://localhost:5000/api/employe/${id}`, {
+        const response = await axios.get(`https://employe-backend.vercel.app/api/employe/${id}`, {
           headers: {
             Authorization : `Bearer ${localStorage.getItem('token')}`,
           },
@@ -59,7 +59,7 @@ export default function Edit() {
     const handleSubmit = async (e) => {
         e.preventDefault()
         try {
-            const response = await axios.put(`http://localhost:5000/api/employe/${id}`, employe, { headers: { Authorization: `Bearer ${localStorage.getItem('token')}`, }, })
+            const response = await axios.put(`https://employe-backend.vercel.app/api/employe/${id}`, employe, { headers: { Authorization: `Bearer ${localStorage.getItem('token')}`, }, })
             if (response.data.success) {
                 Navigate("/admin-dashboard/employes")
             };
