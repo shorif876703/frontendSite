@@ -82,8 +82,8 @@ export default function List() {
           className='px-4 py-1 bg-teal-600 rounded text-white'
         >Add New Employe</Link>
         </div>
-        <button className='px-4 py-1 bg-teal-600 rounded text-white mt-6 mb-6' onClick={() =>filterPosition("admin")}>Admin</button>
-        <button className='px-4 py-1 bg-teal-600 rounded text-white m-6'onClick={() => filterPosition("employe")}>Employe</button>
+        <button className='px-4 py-1 bg-teal-600 rounded text-white mt-6 mb-6'>Admin</button>
+        <button className='px-4 py-1 bg-teal-600 rounded text-white m-6'>Employe</button>
       <div className="mt-6">
         <DataTable columns={columns} data={filteredEmploye}/>
       </div>
