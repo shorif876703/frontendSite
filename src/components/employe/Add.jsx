@@ -34,7 +34,7 @@ export default function Add() {
             formDataObj.append(key, formData[key])
         })
         try {
-            const response = await axios.post("http://localhost:5000/api/employe/add", formDataObj, { headers: { Authorization: `Bearer ${localStorage.getItem('token')}` } })
+            const response = await axios.post("https://employe-backend.vercel.app/api/employe/add", formDataObj, { headers: { Authorization: `Bearer ${localStorage.getItem('token')}` } })
             if (response.data.success) {
                 Navigate("/admin-dashboard/employes")
             }

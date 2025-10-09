@@ -12,7 +12,7 @@ export default function EditDepartment() {
     const fetchDepartments = async () => {
       setDepLoading(true)
       try {
-        const response = await axios.get(`http://localhost:5000/api/department/${id}`, {
+        const response = await axios.get(`https://employe-backend.vercel.app/api/department/${id}`, {
           headers: {
             Authorization : `Bearer ${localStorage.getItem('token')}`,
           },
@@ -39,7 +39,7 @@ export default function EditDepartment() {
   const handleSubmit = async (e) => {
     e.preventDefault()
     try {
-      const response = await axios.put(`http://localhost:5000/api/department/${id}`, department, { headers: { "Authorization": `Bearer ${localStorage.getItem('token')}` } })
+      const response = await axios.put(`https://employe-backend.vercel.app/api/department/${id}`, department, { headers: { "Authorization": `Bearer ${localStorage.getItem('token')}` } })
       if (response.data.success) {
         Navigate("/admin-dashboard/departments")
       }
