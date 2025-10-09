@@ -60,7 +60,7 @@ export default function Setting() {
       setError("Password not match");
     } else {
       try {
-        const response = await axios.put(`https://employe-backend.vercel.app/api/setting/change-password`, setting, {
+        const response = await axios.put(`http://localhost:5000/api/setting/change-password`, setting, {
           headers: {
             Authorization: `Bearer ${localStorage.getItem('token')}`,
           },
