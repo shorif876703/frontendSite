@@ -14,7 +14,7 @@ export default function List() {
     const fetchEployes = async () => {
       setEmpLoading(true)
       try {
-        const response = await axios.get("https://employe-backend.vercel.app/api/employe", {
+        const response = await axios.get("http://localhost:5000/api/employe", {
           headers: {
             "Authorization" : `Bearer ${localStorage.getItem('token')}`,
           },
@@ -33,7 +33,7 @@ export default function List() {
               dep_name: emp.department.dep_name,
               name: emp.userId.name,
               dob: new Date(emp.dob).toLocaleDateString(),
-              profileImage: <img style={imgStyle} className='rounded-full' src={`https://employe-backend.vercel.app/${emp.userId.profileImage}` } />,
+              profileImage: <img style={imgStyle} className='rounded-full' src={`http://localhost:5000/${emp.userId.profileImage}` } />,
               action: (<EmployeButtons Id={emp._id} />),
             }
           ))
@@ -82,7 +82,11 @@ export default function List() {
           className='px-4 py-1 bg-teal-600 rounded text-white'
         >Add New Employe</Link>
         </div>
+<<<<<<< HEAD
         <button className='px-4 py-1 bg-teal-600 rounded text-white mt-6 mb-6'>Admin</button>
+=======
+        <button className='px-4 py-1 bg-teal-600 rounded text-white mt-6 mb-6' >Admin</button>
+>>>>>>> 18ae18b (manage salary and leave file)
         <button className='px-4 py-1 bg-teal-600 rounded text-white m-6'>Employe</button>
       <div className="mt-6">
         <DataTable columns={columns} data={filteredEmploye}/>

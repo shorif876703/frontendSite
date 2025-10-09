@@ -1,16 +1,18 @@
 import React, { useState, useEffect } from 'react'
 import { Link, useParams } from 'react-router-dom';
 import axios from 'axios';
+import { useAuth } from '../../context/authContext';
 ;
 
 export default function LeaveList() {
     const [leaves, setLeaves] = useState([])
-    let sno = 1;
     const { id } = useParams();
+    const {user} = useAuth()
+    let sno = 1;
 
     const fetchLeaves = async () => {
         try {
-            const response = await axios.get(`https://employe-backend.vercel.app/api/leave/${id}`, {
+            const response = await axios.get(`http://localhost:5000/api/leave/${id}/${user.role}`, {
                 headers: {
                     Authorization: `Bearer ${localStorage.getItem("token")}`,
                 },
@@ -24,7 +26,6 @@ export default function LeaveList() {
             }
         }
     };
-
     useEffect(() => {
         fetchLeaves();
     }, []);
