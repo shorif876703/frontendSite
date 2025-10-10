@@ -9,7 +9,7 @@ const [summery, setSummery] = useState(null)
   useEffect(() => {
     const fetchSummery = async () => {
       try {
-        const summery = await axios.get('http://localhost:5000/api/dashboard/summery', {
+        const summery = await axios.get('https://backend-site-mongo-db-atlast.vercel.app/api/dashboard/summery', {
           headers: {
         "Authorization" : `Bearer ${localStorage.getItem('token')}`
           }
